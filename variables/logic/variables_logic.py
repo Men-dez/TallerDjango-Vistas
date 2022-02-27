@@ -22,4 +22,3 @@ def create_variable(var):
 def delete_variable(var_pk):
     variable = get_variable(var_pk)
     variable.delete()
-    return variable
