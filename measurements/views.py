@@ -35,5 +35,7 @@ def measurement_view(request, pk):
         return HttpResponse(measurement, 'application/json')
 
     if request.method == 'DELETE':
+        measurement_dto = ml.get_measurement(pk)
         ml.delete_measurement(pk)
-        return HttpResponse("<int:pk> deleted")
+        measurement = serializers.serialize('json', [measurement_dto,])
+        return HttpResponse(measurement, 'application/json')
